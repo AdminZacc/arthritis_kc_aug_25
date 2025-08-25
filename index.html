@@ -3,159 +3,249 @@
 <head>
   <meta charset="UTF-8">
   <title>Arthritis Knowledge Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7faff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #004d80;
+    }
+    .quiz-container {
+      max-width: 800px;
+      margin: 20px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #f0f4f9;
+    }
+    .question h3 {
+      margin: 0 0 10px;
+    }
+    .options label {
+      display: block;
+      padding: 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 6px;
+      transition: background 0.2s;
+    }
+    .options input {
+      margin-right: 8px;
+    }
+    .correct {
+      background: #e6f9ed;
+      border: 1px solid #4caf50;
+      color: #2e7d32;
+    }
+    .incorrect {
+      background: #fdecea;
+      border: 1px solid #f44336;
+      color: #b71c1c;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 6px;
+    }
+    .hidden {
+      display: none;
+    }
+    .submit-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 25px;
+      font-size: 16px;
+      background: #004d80;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .submit-btn:hover {
+      background: #003355;
+    }
+    .result {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
-<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9fb; color: #333;">
-
-  <!-- Header -->
-  <div style="background: #004d80; color: #fff; padding: 20px; text-align: center;">
-    <h1 style="margin: 0;">Arthritis Knowledge Check</h1>
-    <p style="margin: 5px 0 0;">Test what you’ve learned!</p>
-  </div>
-
-  <!-- Quiz Container -->
-  <div style="max-width: 850px; margin: 30px auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08);">
-
+<body>
+  <h1>Arthritis Knowledge Check</h1>
+  <div class="quiz-container">
     <form id="quizForm">
-
-      <!-- Question Template Example -->
-      <div style="margin-bottom: 20px;" id="q1-container">
-        <p><strong>1. About how many U.S. adults are living with arthritis?</strong></p>
-        <label><input type="radio" name="q1" value="a"> About 10 million</label><br>
-        <label><input type="radio" name="q1" value="b"> About 54 million</label><br>
-        <label><input type="radio" name="q1" value="c"> Over 100 million</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q1 -->
+      <div class="question">
+        <h3>1. About how many U.S. adults live with arthritis?</h3>
+        <div class="options">
+          <label><input type="radio" name="q1" value="a"> About 10 million</label>
+          <label><input type="radio" name="q1" value="b"> About 54 million</label>
+          <label><input type="radio" name="q1" value="c"> About 100 million</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q2-container">
-        <p><strong>2. Arthritis is mainly a condition that affects:</strong></p>
-        <label><input type="radio" name="q2" value="a"> The skin</label><br>
-        <label><input type="radio" name="q2" value="b"> The joints and connective tissues</label><br>
-        <label><input type="radio" name="q2" value="c"> The lungs</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q2 -->
+      <div class="question">
+        <h3>2. True or False: Arthritis only affects the knees.</h3>
+        <div class="options">
+          <label><input type="radio" name="q2" value="a"> True</label>
+          <label><input type="radio" name="q2" value="b"> False</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q3-container">
-        <p><strong>3. True or False: Arthritis is one of the leading causes of work disability among adults.</strong></p>
-        <label><input type="radio" name="q3" value="true"> True</label><br>
-        <label><input type="radio" name="q3" value="false"> False</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q3 -->
+      <div class="question">
+        <h3>3. Arthritis is a leading cause of what among adults?</h3>
+        <div class="options">
+          <label><input type="radio" name="q3" value="a"> Work disability</label>
+          <label><input type="radio" name="q3" value="b"> Heart attacks</label>
+          <label><input type="radio" name="q3" value="c"> Vision problems</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q4-container">
-        <p><strong>4. Which of the following is a risk factor you can control?</strong></p>
-        <label><input type="radio" name="q4" value="a"> Age</label><br>
-        <label><input type="radio" name="q4" value="b"> Family history</label><br>
-        <label><input type="radio" name="q4" value="c"> Smoking</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q4 -->
+      <div class="question">
+        <h3>4. Which of these is a controllable risk factor for arthritis?</h3>
+        <div class="options">
+          <label><input type="radio" name="q4" value="a"> Age</label>
+          <label><input type="radio" name="q4" value="b"> Family history</label>
+          <label><input type="radio" name="q4" value="c"> Smoking</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q5-container">
-        <p><strong>5. The most common symptoms of arthritis include:</strong></p>
-        <label><input type="radio" name="q5" value="a"> Joint pain and stiffness</label><br>
-        <label><input type="radio" name="q5" value="b"> Shortness of breath</label><br>
-        <label><input type="radio" name="q5" value="c"> Skin rash</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q5 -->
+      <div class="question">
+        <h3>5. The two most common arthritis symptoms are:</h3>
+        <div class="options">
+          <label><input type="radio" name="q5" value="a"> Fever and chills</label>
+          <label><input type="radio" name="q5" value="b"> Joint pain and stiffness</label>
+          <label><input type="radio" name="q5" value="c"> Headaches and nausea</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q6-container">
-        <p><strong>6. Which test might a doctor use to help diagnose arthritis?</strong></p>
-        <label><input type="radio" name="q6" value="a"> X-rays</label><br>
-        <label><input type="radio" name="q6" value="b"> Eye exam</label><br>
-        <label><input type="radio" name="q6" value="c"> Hearing test</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q6 -->
+      <div class="question">
+        <h3>6. What kind of doctor specializes in arthritis?</h3>
+        <div class="options">
+          <label><input type="radio" name="q6" value="a"> Rheumatologist</label>
+          <label><input type="radio" name="q6" value="b"> Cardiologist</label>
+          <label><input type="radio" name="q6" value="c"> Dermatologist</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q7-container">
-        <p><strong>7. Which of these is a joint-friendly physical activity?</strong></p>
-        <label><input type="radio" name="q7" value="a"> Walking</label><br>
-        <label><input type="radio" name="q7" value="b"> Sprinting</label><br>
-        <label><input type="radio" name="q7" value="c"> Heavy weightlifting</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q7 -->
+      <div class="question">
+        <h3>7. True or False: There are more than 100 types of arthritis.</h3>
+        <div class="options">
+          <label><input type="radio" name="q7" value="a"> True</label>
+          <label><input type="radio" name="q7" value="b"> False</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q8-container">
-        <p><strong>8. True or False: There is currently a cure for arthritis.</strong></p>
-        <label><input type="radio" name="q8" value="true"> True</label><br>
-        <label><input type="radio" name="q8" value="false"> False</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q8 -->
+      <div class="question">
+        <h3>8. Which of these is a joint-friendly activity for people with arthritis?</h3>
+        <div class="options">
+          <label><input type="radio" name="q8" value="a"> Walking</label>
+          <label><input type="radio" name="q8" value="b"> High-impact jumping</label>
+          <label><input type="radio" name="q8" value="c"> Heavy weightlifting only</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q9-container">
-        <p><strong>9. Who is the specialist trained to diagnose and treat arthritis?</strong></p>
-        <label><input type="radio" name="q9" value="a"> Rheumatologist</label><br>
-        <label><input type="radio" name="q9" value="b"> Cardiologist</label><br>
-        <label><input type="radio" name="q9" value="c"> Dermatologist</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q9 -->
+      <div class="question">
+        <h3>9. Which of these is NOT a common treatment option for arthritis?</h3>
+        <div class="options">
+          <label><input type="radio" name="q9" value="a"> Surgery</label>
+          <label><input type="radio" name="q9" value="b"> Over-the-counter medicine</label>
+          <label><input type="radio" name="q9" value="c"> Ignoring the pain</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="margin-bottom: 20px;" id="q10-container">
-        <p><strong>10. Which is NOT a common arthritis management strategy?</strong></p>
-        <label><input type="radio" name="q10" value="a"> Staying physically active</label><br>
-        <label><input type="radio" name="q10" value="b"> Protecting your joints</label><br>
-        <label><input type="radio" name="q10" value="c"> Ignoring symptoms</label>
-        <div class="feedback" style="margin-top:5px; font-weight:bold;"></div>
+      <!-- Q10 -->
+      <div class="question">
+        <h3>10. Why is early diagnosis important?</h3>
+        <div class="options">
+          <label><input type="radio" name="q10" value="a"> To start treatment and slow progression</label>
+          <label><input type="radio" name="q10" value="b"> To avoid going to the doctor</label>
+          <label><input type="radio" name="q10" value="c"> It doesn’t matter when you’re diagnosed</label>
+        </div>
+        <div class="feedback hidden"></div>
       </div>
 
-      <div style="text-align: center; margin-top: 20px;">
-        <button type="button" onclick="checkAnswers()" style="background: #004d80; color: #fff; border: none; padding: 12px 25px; border-radius: 8px; font-size: 1em; cursor: pointer;">
-          Submit Quiz
-        </button>
-      </div>
+      <button type="button" class="submit-btn" onclick="checkAnswers()">Submit Answers</button>
     </form>
-
-    <!-- Results -->
-    <div id="result" style="margin-top: 30px; text-align: center; font-size: 1.3em; font-weight: bold;"></div>
+    <div id="result" class="result"></div>
   </div>
 
   <script>
+    const answers = {
+      q1: "b",
+      q2: "b",
+      q3: "a",
+      q4: "c",
+      q5: "b",
+      q6: "a",
+      q7: "a",
+      q8: "a",
+      q9: "c",
+      q10: "a"
+    };
+
     function checkAnswers() {
-      const answers = {
-        q1: "b",
-        q2: "b",
-        q3: "true",
-        q4: "c",
-        q5: "a",
-        q6: "a",
-        q7: "a",
-        q8: "false",
-        q9: "a",
-        q10: "c"
-      };
-
       let score = 0;
+      const form = document.getElementById('quizForm');
+      const result = document.getElementById('result');
 
-      for (let q in answers) {
-        const container = document.getElementById(q + "-container");
-        const feedback = container.querySelector(".feedback");
-        const selected = document.querySelector(`input[name="${q}"]:checked`);
-        
-        // Reset styles before grading
-        container.style.border = "2px solid transparent";
-        feedback.innerHTML = "";
+      Object.keys(answers).forEach(q => {
+        const selected = form.querySelector(`input[name="${q}"]:checked`);
+        const feedback = form.querySelector(`input[name="${q}"]`)?.closest('.question').querySelector('.feedback');
 
-        if (selected) {
-          if (selected.value === answers[q]) {
-            score++;
-            container.style.border = "2px solid green";
-            feedback.innerHTML = "✅ Correct!";
-            feedback.style.color = "green";
-          } else {
-            container.style.border = "2px solid red";
-            feedback.innerHTML = "❌ Incorrect. Correct answer: " + answers[q].toUpperCase();
-            feedback.style.color = "red";
-          }
-        } else {
-          container.style.border = "2px solid orange";
-          feedback.innerHTML = "⚠️ No answer selected.";
-          feedback.style.color = "orange";
+        if (!selected) {
+          feedback.textContent = "Please select an answer.";
+          feedback.classList.remove("hidden");
+          feedback.classList.remove("correct", "incorrect");
+          return;
         }
-      }
 
-      const result = document.getElementById("result");
-      result.innerHTML = "You scored " + score + " out of 10!";
-      result.style.color = score >= 7 ? "green" : "red";
+        if (selected.value === answers[q]) {
+          score++;
+          feedback.innerHTML = "✔ Correct!";
+          feedback.classList.remove("hidden", "incorrect");
+          feedback.classList.add("correct");
+          selected.parentElement.classList.add("correct");
+        } else {
+          feedback.innerHTML = "✘ Incorrect.";
+          feedback.classList.remove("hidden", "correct");
+          feedback.classList.add("incorrect");
+          selected.parentElement.classList.add("incorrect");
+        }
+      });
+
+      result.textContent = `You scored ${score} out of ${Object.keys(answers).length}.`;
     }
   </script>
-
 </body>
 </html>
